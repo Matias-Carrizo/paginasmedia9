@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoria, Verdad y Justicia - Argentina | Nunca Más</title>
+    <style>
+        :root {
+            --bg-dark: #f4f5f7;
+            --bg-card: #b8d2fc;
+            --accent: #f8d406;
+            --accent-hover: #ffe600;
+            --text-main: #f8fafc;
+            --text-muted: #2782f8;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navegación Glassmorphism */
+        header {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Inmersivo */
+        .portada {
+            background: linear-gradient(135deg, rgba(105, 150, 255, 0.9), rgba(226, 230, 235, 0.7)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxeC5552C45exK6j5TVyDgkFh2M5fIaqWyXkzzj5Nz7VvTu0jTmB0olFY&s=10') no-repeat center center/cover;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .portada::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--bg-dark), transparent);
+        }
+
+        .badge-anni {
+            background: rgba(5, 120, 173, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(241, 245, 242, 0.397);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .portada h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            max-width: 900px;
+        }
+
+        .portada p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 35px;
+            max-width: 750px;
+            color: var(--text-muted);
+        }
+
+        .btn {
+            background: var(--accent);
+            color: rgb(248, 250, 249);
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 25px -5px rgba(3, 47, 240, 0.479);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(253, 207, 4, 0.623);
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        /* Línea de Tiempo Vertical Unificada */
+        .timeline-vertical {
+            position: relative;
+            margin: 0 auto;
+            padding-left: 40px;
+        }
+
+        /* Línea central guía que corre hacia abajo */
+        .timeline-vertical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15px;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), rgba(252, 214, 1, 0.76));
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        /* Indicador circular en la línea */
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            left: -32.5px;
+            top: 25px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 0 3px rgba(40, 148, 236, 0.3);
+            z-index: 2;
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            overflow: hidden;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .timeline-card:hover {
+            border-color: rgba(225, 29, 72, 0.4);
+            transform: translateX(5px);
+        }
+
+        .timeline-card:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        /* Contenedor de la imagen al lado */
+        .timeline-img-container {
+            flex: 0 0 32%;
+            min-height: 220px;
+            position: relative;
+        }
+
+        .timeline-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Contenedor del contenido textual */
+        .timeline-content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            background: rgba(225, 29, 72, 0.15);
+            color: var(--accent);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Panel de Estadísticas / Impacto */
+        .stats-panel {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .stat-item h4 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Sección de Testimonios */
+        .grid-testimonios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonio-card {
+            background: linear-gradient(145deg, #1e293b, #151e2d);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 35px;
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonio-card::before {
+            content: '“';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(225, 29, 72, 0.15);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonio-card p {
+            font-style: italic;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonio-autor {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Pie de página */
+        footer {
+            background: #090d16;
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+            margin-top: 80px;
+        }
+
+        footer p span {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Responsive para celulares: la imagen pasa arriba del texto en cada cuadro */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 15px;
+            }
+            .timeline-card {
+                flex-direction: column;
+            }
+            .timeline-img-container {
+                flex: none;
+                height: 180px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <nav>
+            <div class="logo">MEMORIA <span>ARGENTINA</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#cronologia">Línea de Memoria</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Portada Inmersiva -->
+    <section class="portada" id="inicio">
+        <div class="badge-anni">A 50 años del golpe de Estado</div>
+        <h1>Memoria, Verdad y Justicia</h1>
+        <p style="color: #041121;font-weight: bold;">Un espacio interactivo para repensar nuestra historia, honrar la resistencia colectiva y mantener vigente el compromiso democrático.</p>
+        <a href="#cronologia" class="btn">Ver Línea de Sucesos</a>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="container">
+
+        <!-- Panel de Estadísticas / Impacto -->
+        <div class="stats-panel">
+            <div class="stat-item">
+                <h4>50</h4>
+                <p>Años de lucha ininterrumpida</p>
+            </div>
+            <div class="stat-item">
+                <h4>+700</h4>
+                <p>Centros Clandestinos documentados</p>
+            </div>
+            <div class="stat-item">
+                <h4>+130</h4>
+                <p>Nietos con identidad restituida</p>
+            </div>
+        </div>
+
+        <!-- Línea de Tiempo Vertical Unificada -->
+        <h2 class="section-title" id="cronologia"><span>Línea de Sucesos e Histórica (click en cada uno para ver más)</span></h2>
+
+        <div class="timeline-vertical">
+            <!-- 1. 1976: Golpe de Estado -->
+            <div class="timeline-block">
+                <a class="timeline-card" href="golpe-1976.html" aria-label="Ampliar información sobre el golpe de Estado de 1976">
+                    <div class="timeline-img-container">
+                        <img src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/QYGRTBFU5ZGIJFY2YXLRL3QSKI.jpg" alt="Golpe de Estado de 1976">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">24 de Marzo de 1976</span>
+                        <h3>El Golpe de Estado y Terrorismo de Estado</h3>
+                        <p>El golpe cívico-militar interrumpió la democracia y dio inicio al autodenominado Proceso de Reorganización Nacional, una dictadura que instaló el terrorismo de Estado.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 2. Censura de Artistas, Libros y Cultura -->
+            <div class="timeline-block">
+                <a class="timeline-card" href="censura-cultural.html" aria-label="Ampliar información sobre la censura cultural">
+                    <div class="timeline-img-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ71B2a4IT1ELdkXUB0UIDtpbxuiRRMyDPE65S9mUCiXD8xfGgt1p-Zw00&amp;s=10" alt="Censura artística y cultural">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">Control Ideológico</span>
+                        <h3>Censura de Artistas, Libros y Cultura</h3>
+                        <p>El régimen prohibió libros, canciones, obras de teatro y películas, y persiguió a artistas, intelectuales y docentes.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 3. 1978: Mundial de Fútbol -->
+            <div class="timeline-block">
+                <a class="timeline-card" href="mundial-1978.html" aria-label="Ampliar información sobre el Mundial de Fútbol de 1978">
+                    <div class="timeline-img-container">
+                        <img src="https://fotos.perfil.com/2014/05/21/trim/1140/641/final-al-dictador-no-le-gustaba-el-futbol-pero-quiso-mantener-la-competencia-para-tener-ganancias-en-terminos-de-imagen-0518-g1.jpg" alt="Mundial de Fútbol 1978">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">Junio de 1978</span>
+                        <h3>El Mundial de Fútbol y el Uso Político</h3>
+                        <p>La dictadura utilizó la competencia deportiva como propaganda internacional mientras continuaban las graves violaciones a los derechos humanos.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 4. 1979: Visita de la CIDH -->
+            <div class="timeline-block">
+                <a class="timeline-card" href="visita-cidh-1979.html" aria-label="Ampliar información sobre la visita de la CIDH">
+                    <div class="timeline-img-container">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.m9UzoHQAEon3GVJ3FP5y6wHaFS?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" alt="Visita de la CIDH">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">Septiembre de 1979</span>
+                        <h3>Visita de la CIDH (Comisión Interamericana de Derechos Humanos)</h3>
+                        <p>La CIDH recibió denuncias de familiares y documentó internacionalmente la situación de los derechos humanos en el país.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 5. 1980: Crisis Económica -->
+            <div class="timeline-block">
+                <a class="timeline-card" href="crisis-economica-1980.html" aria-label="Ampliar información sobre la crisis económica de 1980">
+                    <div class="timeline-img-container">
+                        <img src="https://www.eldiplo.org/wp-content/uploads/2022/03/grafico-2.1.jpg" alt="Gráfico relacionado con la crisis económica">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">1980</span>
+                        <h3>La Crisis Económica y Financiera</h3>
+                        <p>Las políticas financieras de la dictadura desembocaron en inestabilidad bancaria, recesión y un creciente desgaste del modelo económico.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 6. 1981: Cambio de Presidente de Facto -->
+            <div class="timeline-block">
+                <a class="timeline-card" href="roberto-viola-1981.html" aria-label="Ampliar información sobre el gobierno de Roberto Viola">
+                    <div class="timeline-img-container">
+                        <img src="https://www.biografiasyvidas.com/biografia/v/fotos/viola_roberto.jpg" alt="Roberto Eduardo Viola">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">Marzo de 1981</span>
+                        <h3>Cambio de Presidente de Facto (Roberto Viola)</h3>
+                        <p>Roberto Eduardo Viola reemplazó a Videla en un contexto de disputas internas, crisis económica y creciente presión social.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 7. 1982: Guerra de Malvinas -->
+            <div class="timeline-block">
+                <a class="timeline-card" href="guerra-malvinas-1982.html" aria-label="Ampliar información sobre la Guerra de Malvinas">
+                    <div class="timeline-img-container">
+                        <img src="https://tse1.explicit.bing.net/th/id/OIP.HF91IWPAKxpwhDW2Fok-pwHaEd?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" alt="Guerra de Malvinas">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">2 de Abril de 1982</span>
+                        <h3>La Guerra de Malvinas</h3>
+                        <p>La derrota en el conflicto con el Reino Unido aceleró la crisis política de la dictadura y profundizó el descontento popular.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 8. 1983: Regreso de la Democracia -->
+            <div class="timeline-block">
+                <a class="timeline-card" href="democracia-1983.html" aria-label="Ampliar información sobre el regreso de la democracia en 1983">
+                    <div class="timeline-img-container">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.eXZDHjaA0srex_HikySz6wHaEe?r=0&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" alt="Regreso de la democracia">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">10 de Diciembre de 1983</span>
+                        <h3>El Regreso de la Democracia</h3>
+                        <p>Con la asunción de Raúl Alfonsín finalizó la dictadura y comenzó la reconstrucción institucional y el camino hacia la justicia.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sección Muro de Testimonios -->
+        <h2 class="section-title" id="testimonios" style="margin-top: 100px;">Voces que <span>Construyen Memoria</span></h2>
+        
+        <div class="grid-testimonios">
+            <div class="testimonio-card">
+                <p>"La única lucha que se pierde es la que se abandona. Nos quitaron a nuestros hijos, pero nos multiplicamos en miles de jóvenes que hoy llevan las banderas de la justicia."</p>
+                <span class="testimonio-autor">Abuelas de Plaza de Mayo</span>
+            </div>
+
+            <div class="testimonio-card">
+                <p>"Sobrevivimos para contar lo que pasó. El silencio era lo que buscaban los genocidas; nuestra obligación histórica es dar testimonio para que la impunidad no gane terreno."</p>
+                <span class="testimonio-autor">Testimonio de Sobreviviente</span>
+            </div>
+
+            <div class="testimonio-card">
+                <p>"La ciencia puesta al servicio de la identidad permitió crear el Banco Nacional de Datos Genéticos, un logro único impulsado por el amor y la persistencia."</p>
+                <span class="testimonio-autor">Ciencia y Derechos Humanos</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 Memoria, Verdad y Justicia. <span>Nunca Más.</span></p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>50 años del Golpe Militar en Argentina</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #eaf8fc, #ffffff);
+            color: #355b6b;
+        }
+
+        header {
+            background: linear-gradient(135deg, #bde5f2, #dff5fa);
+            padding: 35px 20px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(70, 130, 150, 0.15);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 42px;
+            color: #315d70;
+        }
+
+        header p {
+            font-size: 19px;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           MENÚ
+        ========================= */
+
+        nav {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 10px rgba(80, 140, 160, 0.12);
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            border: none;
+            background-color: #d4f0f7;
+            color: #315d70;
+            padding: 18px 30px;
+            min-width: 150px;
+            height: 64px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            background-color: #a9ddeb;
+            transform: translateY(-4px);
+        }
+
+        /* BOTÓN DEL PAÑUELO */
+
+        .boton-panueño {
+            width: 150px;
+            height: 64px;
+            padding: 3px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #d4f0f7;
+        }
+
+        .imagen-panueño {
+       
+            width: 144px;
+            height: 58px;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 45px;
+            background-color: white;
+            border-radius: 25px;
+            box-shadow: 0 5px 20px rgba(70, 130, 150, 0.12);
+        }
+
+        #inicio {
+            min-height: 75vh;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bienvenida {
+            text-align: center;
+            max-width: 850px;
+            margin-bottom: 45px;
+        }
+
+        .bienvenida h2 {
+            color: #447d91;
+            font-size: 32px;
+        }
+
+        .bienvenida p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CASILLAS DE INICIO
+        ========================= */
+
+        .contenedor-casillas {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .casilla {
+            width: 250px;
+            height: 220px;
+            background: linear-gradient(145deg, #ffffff, #dff5fa);
+            border: 3px solid #b4deea;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .casilla:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(70, 130, 150, 0.18);
+        }
+
+        .casilla .icono {
+            font-size: 50px;
+            margin-bottom: 12px;
+        }
+
+        .casilla h3 {
+            margin: 5px;
+            color: #39758a;
+        }
+
+        /* =========================
+           CONTENIDO
+        ========================= */
+
+        h2 {
+            color: #39758a;
+            font-size: 32px;
+        }
+
+        h3 {
+            color: #447d91;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .destacado {
+            background-color: #e8f7fb;
+            border-left: 6px solid #72b8ca;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        /* =========================
+           IMAGEN DE AZUCENA
+        ========================= */
+
+        .imagen-azucena {
+            width: 100%;
+            max-width: 500px;
+            display: block;
+            margin: 25px auto;
+            border-radius: 20px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+        }
+
+        .texto-centro {
+            text-align: center;
+        }
+
+        /* =========================
+           MÚSICA
+        ========================= */
+
+        .musica-contenedor {
+            text-align: center;
+        }
+
+        .musica-contenedor h2 {
+            font-size: 36px;
+        }
+
+        .imagen-musica {
+            width: 100%;
+            max-width: 1200px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 20px;
+            box-shadow: 0 6px 22px rgba(50, 100, 120, 0.18);
+        }
+
+        .descripcion-musica {
+            background-color: #e9f8fc;
+            padding: 25px;
+            border-radius: 18px;
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        /* =========================
+           ANEXO
+        ========================= */
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.03);
+        }
+
+        /* =========================
+           BOTÓN VOLVER
+        ========================= */
+
+        .boton-volver {
+            display: block;
+            margin: 35px auto 0;
+            border: none;
+            background-color: #b9e3ed;
+            color: #315d70;
+            padding: 14px 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .boton-volver:hover {
+            background-color: #91d1df;
+        }
+
+        /* =========================
+           PIE
+        ========================= */
+
+        footer {
+            background-color: #c9eaf2;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            color: #315d70;
+        }
+
+        footer p {
+            margin: 8px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav {
+                gap: 8px;
+            }
+
+            nav button,
+            .boton-panueño {
+                min-width: 120px;
+                width: 120px;
+                height: 58px;
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .imagen-panueño {
+                width: 114px;
+                height: 52px;
+            }
+
+            section {
+                margin: 20px;
+                padding: 25px;
+            }
+
+            .casilla {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         ENCABEZADO
+    ========================= -->
+
+    <header>
+
+        <h1>50 años del Golpe Militar en Argentina</h1>
+
+        <p>
+            Memoria, verdad, justicia y democracia
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         MENÚ SUPERIOR
+    ========================= -->
+
+    <nav>
+
+        <button onclick="mostrarInicio()">
+            🏠 Inicio
+        </button>
+
+        <button onclick="mostrarPortada()">
+            📖 Portada
+        </button>
+
+        <button onclick="mostrarIntroduccion()">
+            👤 Introducción
+        </button>
+
+        <!-- PAÑUELO: SOLO IMAGEN -->
+
+        <button
+            class="boton-panueño"
+            onclick="mostrarPanueño()"
+            title="Pañuelo blanco"
+        >
+            <img
+                src="pañuelodelasabuelas.jpg"
+                alt="Pañuelo blanco"
+                class="imagen-panueño"
+            >
+        </button>
+
+        <button onclick="mostrarMusica()">
+            🎵 Música
+        </button>
+
+        <button onclick="mostrarAnexo()">
+            🖼️ Anexo
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         INICIO
+    ========================= -->
+
+    <section id="inicio">
+
+        <div class="bienvenida">
+
+            <h2>
+                50 años del Golpe Militar
+            </h2>
+
+            <p>
+                Este proyecto busca recordar y reflexionar sobre uno de los
+                períodos más importantes y dolorosos de la historia argentina.
+            </p>
+
+            <p>
+                La memoria es fundamental para comprender el pasado,
+                valorar la democracia y defender los derechos humanos.
+            </p>
+
+        </div>
+
+
+        <div class="contenedor-casillas">
+
+            <div class="casilla" onclick="mostrarPortada()">
+
+                <div class="icono">
+                    📖
+                </div>
+
+                <h3>
+                    Portada
+                </h3>
+
+                <p>
+                    Presentación del proyecto.
+                </p>
+
+            </div>
+
+
+            <div class="casilla" onclick="mostrarIntroduccion()">
+
+                <div class="icono">
+                    🕊️
+                </div>
+
+                <h3>
+                    Introducción
+                </h3>
+
+                <p>
+                    Contexto histórico.
+                </p>
+
+            </div>
+
+
+            <div class="casilla" onclick="mostrarPanueño()">
+
+                <div class="icono">
+                    🧣
+                </div>
+
+                <h3>
+                    Pañuelo blanco
+                    <img>se
+
+                </img>
+                </h3>
+
+                <p>
+                    Madres de Plaza de Mayo.
+                </p>
+            </div>
+
+
+            <div class="casilla" onclick="mostrarMusica()">
+
+                <div class="icono">
+                    🎵
+                </div>
+
+                <h3>
+                    Música
+                </h3>
+
+                <p>
+                    El rock durante la dictadura.
+                </p>
+
+            </div>
+
+
+            <div class="casilla" onclick="mostrarAnexo()">
+
+                <div class="icono">
+                    🖼️
+                </div>
+
+                <h3>
+                    Anexo
+                </h3>
+
+                <p>
+                    Imágenes históricas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PORTADA
+    ========================= -->
+
+    <section id="portada" style="display:none;">
+
+        <h2>
+            Portada
+        </h2>
+
+        <div class="texto-centro">
+
+            <h3>
+                50 años del Golpe Militar en Argentina
+            </h3>
+
+            <p>
+                Proyecto escolar sobre la última dictadura militar argentina,
+                la memoria, los desaparecidos, las Madres de Plaza de Mayo,
+                la música y el regreso de la democracia.
+            </p>
+
+            <p>
+                <strong>
+                    1976 - 1983
+                </strong>
+            </p>
+
+        </div>
+
+        <button
+            class="boton-volver"
+            onclick="mostrarInicio()"
+        >
+            ← Volver al inicio
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         INTRODUCCIÓN
+    ========================= -->
+
+    <section id="introduccion" style="display:none;">
+
+        <h2>
+            Introducción
+        </h2>
+
+        <p>
+            El 24 de marzo de 1976 las Fuerzas Armadas tomaron el poder
+            mediante un golpe de Estado y comenzó la última dictadura
+            militar argentina.
+        </p>
+
+        <p>
+            El nuevo gobierno se presentó como el "Proceso de
+            Reorganización Nacional". Durante este período fueron
+            interrumpidas las instituciones democráticas y se estableció
+            un régimen autoritario.
+        </p>
+
+        <h3>
+            La represión y el terrorismo de Estado
+        </h3>
+
+        <p>
+            Uno de los aspectos más graves de la dictadura fue la utilización
+            de la represión ilegal y clandestina. Muchas personas fueron
+            secuestradas y llevadas a centros clandestinos de detención.
+        </p>
+
+        <p>
+            Muchas víctimas fueron asesinadas o permanecen desaparecidas.
+            La desaparición forzada provocó un enorme sufrimiento en las
+            familias que durante años buscaron información sobre sus
+            seres queridos.
+        </p>
+
+        <h3>
+            La censura
+        </h3>
+
+        <p>
+            Durante la dictadura también existió censura en los medios de
+            comunicación, la cultura y la educación. Determinados libros,
+            canciones, películas y expresiones artísticas fueron prohibidos
+            o controlados.
+        </p>
+
+        <h3>
+            Guerra de Malvinas
+        </h3>
+
+        <p>
+            En 1982 la dictadura tomó la decisión de ocupar las Islas
+            Malvinas, lo que provocó una guerra con el Reino Unido.
+        </p>
+
+        <p>
+            El conflicto terminó con la derrota argentina y tuvo un fuerte
+            impacto sobre la sociedad. La derrota debilitó aún más al
+            gobierno militar y aceleró el proceso de recuperación democrática.
+        </p>
+
+        <h3>
+            El regreso de la democracia
+        </h3>
+
+        <p>
+            Durante 1983 se realizaron elecciones democráticas. Raúl Alfonsín
+            fue elegido presidente y asumió el 10 de diciembre de ese año.
+        </p>
+
+        <div class="destacado">
+
+            <p>
+                <strong>
+                    Memoria, verdad y justicia.
+                </strong>
+            </p>
+
+            <p>
+                Recordar nuestra historia es una forma de construir un futuro
+                en el que la democracia y los derechos humanos sean siempre
+                respetados.
+            </p>
+
+        </div>
+
+        <button
+            class="boton-volver"
+            onclick="mostrarInicio()"
+        >
+            ← Volver al inicio
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PAÑUELO BLANCO
+    ========================= -->
+
+    <section id="panueño" style="display:none;">
+
+        <h2>
+            El pañuelo blanco y las Madres de Plaza de Mayo
+        </h2>
+
+        <img
+            src="Azucena_Villaflor"
+            alt="Azucena Villaflor"
+            class="imagen-azucena"
+        >
+
+        <div class="texto-centro">
+
+            <h3>
+                Azucena Villaflor
+            </h3>
+
+        </div>
+
+        <p>
+            Azucena Villaflor de De Vincenti fue una de las mujeres que
+            impulsó la organización de las Madres de Plaza de Mayo.
+            Su historia quedó relacionada con la búsqueda de su hijo
+            desaparecido durante la dictadura militar.
+        </p>
+
+        <p>
+            Frente a la desaparición de sus hijos y familiares, un grupo
+            de madres comenzó a reunirse para reclamar información y
+            exigir respuestas al gobierno.
+        </p>
+
+        <p>
+            Las Madres comenzaron a encontrarse en la Plaza de Mayo.
+            Con el paso del tiempo, sus pañuelos blancos se transformaron
+            en uno de los símbolos más reconocidos de la lucha por los
+            derechos humanos en Argentina.
+        </p>
+
+        <div class="destacado">
+
+            <h3>
+                ¿Qué representa el pañuelo blanco?
+            </h3>
+
+            <p>
+                El pañuelo blanco representa la memoria, la búsqueda de
+                los desaparecidos, la identidad y la lucha por verdad
+                y justicia.
+            </p>
+
+        </div>
+
+        <h3>
+            Madres y Abuelas de Plaza de Mayo
+        </h3>
+
+        <p>
+            Las Madres reclamaron por sus hijos desaparecidos, mientras
+            que las Abuelas de Plaza de Mayo iniciaron una búsqueda
+            especialmente relacionada con los niños y niñas que habían
+            sido separados de sus familias durante la dictadura.
+        </p>
+
+        <button
+            class="boton-volver"
+            onclick="mostrarInicio()"
+        >
+            ← Volver al inicio
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         MÚSICA
+    ========================= -->
+
+    <section id="musica" style="display:none;">
+
+        <div class="musica-contenedor">
+
+            <h2>
+                🎵 El rock durante la dictadura
+            </h2>
+
+            <p>
+                El rock argentino tuvo un papel importante como espacio
+                de expresión durante los años de la dictadura.
+            </p>
+
+            <img
+                src="imagendelrock/lineadetiempo"
+                alt="Línea de tiempo del rock argentino durante la dictadura"
+                class="imagen-musica"
+            >
+
+            <div class="descripcion-musica">
+
+                <h3>
+                    La música como forma de expresión
+                </h3>
+
+                <p>
+                    Durante la dictadura existieron censura y restricciones
+                    sobre distintas expresiones culturales. A pesar de esto,
+                    muchos músicos continuaron creando y presentándose.
+                </p>
+
+                <p>
+                    Las canciones permitieron expresar sentimientos,
+                    preocupaciones y críticas relacionadas con la realidad
+                    que vivía la sociedad argentina.
+                </p>
+
+                <p>
+                    El rock también funcionó como un espacio de encuentro
+                    para muchos jóvenes y tuvo una importancia especial
+                    durante los años de la dictadura y el regreso de la
+                    democracia.
+                </p>
+
+            </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/XG0FfCIsX9M?si=36ljedXmm2DbLQsu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <button
+            class="boton-volver"
+            onclick="mostrarInicio()"
+        >
+            ← Volver al inicio
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         ANEXO
+    ========================= -->
+
+    <section id="anexo" style="display:none;">
+
+        <h2>
+            🖼️ Anexo
+        </h2>
+
+        <p>
+            Imágenes relacionadas con las Madres y Abuelas de Plaza de Mayo
+            y la memoria histórica.
+        </p>
+
+        <div class="galeria">
+
+            <img
+                src="imagenes/abuelas.jpg"
+                alt="Madres y Abuelas de Plaza de Mayo"
+            >
+
+            <img
+                src="imagenes/abuelas1.jpg"
+                alt="Abuelas de Plaza de Mayo"
+            >
+
+            <img
+                src="imagenes/abuelas2.jpg"
+                alt="Marcha de Madres y Abuelas"
+            >
+
+            <img
+                src="imagenes/abuelas4.avif"
+                alt="Pañuelos blancos y memoria"
+            >
+
+        </div>
+
+        <button
+            class="boton-volver"
+            onclick="mostrarInicio()"
+        >
+            ← Volver al inicio
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================= -->
+
+    <footer>
+
+        <p>
+            <strong>
+                Proyecto escolar - Escuela Media 9
+            </strong>
+        </p>
+
+        <p>
+            Delfina Vidal · Ana Gutiérrez · Fiorella Ferreyra · Bianca Coronel
+        </p>
+
+        <p>
+            50 años del Golpe Militar en Argentina
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function ocultarTodo() {
+
+            document.getElementById("inicio").style.display = "none";
+
+            document.getElementById("portada").style.display = "none";
+
+            document.getElementById("introduccion").style.display = "none";
+
+            document.getElementById("panueño").style.display = "none";
+
+            document.getElementById("musica").style.display = "none";
+
+            document.getElementById("anexo").style.display = "none";
+        }
+
+
+        function irArriba() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function mostrarInicio() {
+
+            ocultarTodo();
+
+            document.getElementById("inicio").style.display = "flex";
+
+            irArriba();
+        }
+
+
+        function mostrarPortada() {
+
+            ocultarTodo();
+
+            document.getElementById("portada").style.display = "block";
+
+            irArriba();
+        }
+
+
+        function mostrarIntroduccion() {
+
+            ocultarTodo();
+
+            document.getElementById("introduccion").style.display = "block";
+
+            irArriba();
+        }
+
+
+        function mostrarPanueño() {
+
+            ocultarTodo();
+
+            document.getElementById("panueño").style.display = "block";
+
+            irArriba();
+        }
+
+
+        function mostrarMusica() {
+
+            ocultarTodo();
+
+            document.getElementById("musica").style.display = "block";
+
+            irArriba();
+        }
+
+
+        function mostrarAnexo() {
+
+            ocultarTodo();
+
+            document.getElementById("anexo").style.display = "block";
+
+            irArriba();
+        }
+
+
+        // Al abrir la página se muestra Inicio
+
+        mostrarInicio();
+
+    </script>
+
+</body>
+</html>

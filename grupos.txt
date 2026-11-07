@@ -1,0 +1,6 @@
+grupo1:carabajal,lopez,scianca,santellan
+grupo2:caro, dos santos,blanco
+grupo3:DUARTE, SPINELLI, PERFUMO, BENITEZ
+grupo4:rothar,behr,sanchez,vega
+grupo5:ferreyra,vidal,coronel,gutierrez
+grupo6:bataras,troiloscalia,gomez lautaro

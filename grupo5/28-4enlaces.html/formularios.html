@@ -1,0 +1,65 @@
+<DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Basico</title>
+    <style>
+        /*Estilo paracentrar el formulario en la pantalla*/
+        body { 
+            font-family: sans-serif;
+            background-color: #f0f2f5;
+            padding: 10px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            max-width: 300px;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"]{
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Hace que el padding no ensanche la casilla*/
+        }
+            /* Estilo para el bóton de enviar */
+            input[type="submit"] {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 10px;
+                width: 100%;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            /*Cambio de color cuando pasás el mouse por el botón */
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for=""nombre>Nombre:</label>
+        <input type="text"  id="nombre" name="usuario" placeholder="Tu nombre" required>
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="email" placeholder="correo@ejemplo.com" requiered>
+        <label for="clave">Contraseña:</label>
+        <input type="password" id="clave" name="password" placeholder="Tu clave" required>
+        <input type="submit" value="Enviar Formulario">
+    </form>
+</body>
+</html>

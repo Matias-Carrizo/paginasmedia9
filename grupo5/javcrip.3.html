@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title> 
+    <style>
+        #caja{
+            width: 200px;
+            height: 100px;
+            background-color: lightgray;
+            display:flex;
+            align-items: center;
+            justify-content:center;
+            transition: all 0.3s;
+        }
+        </style>
+        </head>
+        <body>
+            <div id="caja">Caja de texto</div>
+        <br>
+        <button id="btnEstilo">Estilizar Caja</button>
+
+        <script>
+            const caja = document.getElementById('caja');
+            const btn = document.getElementById('btnEstilo');
+
+            btn.addEventListener('click',() => { 
+                caja.style.blackgroundColor = 'royalblue';
+                caja.style.color = 'white';
+                caja.style.fontSize = '20px';
+            });
+            </script>
+            </body>
+            </html>

@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>50 años del Golpe Militar en Argentina</title>
+
+    <style>
+
+        /* =========================
+           ESTILOS GENERALES
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #eaf8fc, #ffffff);
+            color: #355b6b;
+        }
+
+
+        /* =========================
+           ENCABEZADO
+        ========================= */
+
+        header {
+            background: linear-gradient(135deg, #bde5f2, #dff5fa);
+            padding: 35px 20px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(70, 130, 150, 0.15);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 42px;
+            color: #315d70;
+        }
+
+        header p {
+            font-size: 19px;
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           MENÚ
+        ========================= */
+
+        nav {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 10px rgba(80, 140, 160, 0.12);
+        }
+
+        nav button {
+            border: none;
+            background-color: #d4f0f7;
+            color: #315d70;
+            padding: 12px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            background-color: #a9ddeb;
+            transform: translateY(-5px);
+        }
+
+
+        /* =========================
+           PÁGINA PRINCIPAL
+        ========================= */
+
+        #inicio {
+            min-height: 75vh;
+            padding: 60px 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bienvenida {
+            text-align: center;
+            max-width: 850px;
+            margin-bottom: 45px;
+        }
+
+        .bienvenida h2 {
+            color: #447d91;
+            font-size: 30px;
+        }
+
+        .bienvenida p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CUADRADOS INTERACTIVOS
+        ========================= */
+
+        .contenedor-casillas {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .casilla {
+            width: 250px;
+            height: 220px;
+
+            background: linear-gradient(145deg, #ffffff, #dff5fa);
+
+            border: 3px solid #b4deea;
+            border-radius: 25px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 20px rgba(75, 140, 160, 0.2);
+
+            transition: all 0.4s ease;
+        }
+
+        .casilla:hover {
+            transform: scale(1.07);
+            background: #d4f1f8;
+            box-shadow: 0 12px 25px rgba(75, 140, 160, 0.3);
+        }
+
+        .casilla .icono {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .casilla h3 {
+            margin: 0;
+            font-size: 23px;
+            color: #3f7487;
+        }
+
+
+        /* =========================
+           CONTENIDO
+        ========================= */
+
+        .seccion {
+            display: none;
+
+            max-width: 1000px;
+            margin: 50px auto;
+
+            padding: 40px;
+
+            background-color: white;
+
+            border-radius: 25px;
+
+            box-shadow: 0 8px 25px rgba(70, 130, 150, 0.15);
+
+            animation: aparecer 0.6s ease;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .seccion h2 {
+            color: #3f788d;
+            font-size: 32px;
+            border-bottom: 3px solid #c9eaf3;
+            padding-bottom: 12px;
+        }
+
+        .seccion h3 {
+            color: #5792a6;
+            font-size: 24px;
+            margin-top: 35px;
+        }
+
+        .seccion p {
+            font-size: 17px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+
+        /* =========================
+           CAJAS DESTACADAS
+        ========================= */
+
+        .destacado {
+            background-color: #e6f6fa;
+            border-left: 6px solid #9dd5e4;
+
+            padding: 20px;
+
+            margin: 25px 0;
+
+            border-radius: 10px;
+        }
+
+        .destacado p {
+            margin: 0;
+        }
+
+
+        /* =========================
+           BOTONES
+        ========================= */
+
+        .boton-volver {
+            display: block;
+
+            margin: 35px auto 0;
+
+            border: none;
+
+            background-color: #c4e8f1;
+
+            color: #315d70;
+
+            padding: 14px 25px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+        }
+
+        .boton-volver:hover {
+            background-color: #9ed7e6;
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           LÍNEA DEL TIEMPO
+        ========================= */
+
+        .timeline {
+            border-left: 4px solid #b7dfe9;
+            margin: 30px 0;
+            padding-left: 25px;
+        }
+
+        .evento {
+            background-color: #edf9fc;
+            padding: 18px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .evento h4 {
+            color: #42798c;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background-color: #c7eaf4;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 7px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .casilla {
+                width: 220px;
+                height: 200px;
+            }
+
+            .seccion {
+                margin: 25px 15px;
+                padding: 25px;
+            }
+
+            .seccion h2 {
+                font-size: 27px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         ENCABEZADO
+    ========================= -->
+
+    <header>
+
+        <h1>50 años del Golpe Militar</h1>
+
+        <p>
+            Historia, memoria y democracia en Argentina
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         MENÚ INTERACTIVO
+    ========================= -->
+
+    <nav>
+
+        <button onclick="mostrarInicio()">
+            🏠 Inicio
+        </button>
+
+        <button onclick="mostrarPortada()">
+            📘 Portada
+        </button>
+
+        <button onclick="mostrarIntroduccion()">
+            📚 Introducción
+        </button>
+
+        <button onclick="mostrarDesarrollo()">
+            📖 Desarrollo
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         INICIO
+    ========================= -->
+
+    <main id="inicio">
+
+        <div class="bienvenida">
+
+            <h2>
+                Bienvenidos a nuestro proyecto
+            </h2>
+
+            <p>
+                En esta página presentamos nuestro trabajo escolar
+                sobre el golpe militar ocurrido en Argentina y sus
+                consecuencias en nuestra sociedad.
+            </p>
+
+            <p>
+                Podés hacer clic en cualquiera de las siguientes
+                casillas para conocer nuestro proyecto.
+            </p>
+
+        </div>
+
+
+        <div class="contenedor-casillas">
+
+
+            <!-- PORTADA -->
+
+            <div class="casilla" onclick="mostrarPortada()">
+
+                <div class="icono">
+                    📘
+                </div>
+
+                <h3>
+                    PORTADA
+                </h3>
+
+                <p>
+                    Conocé quiénes somos
+                </p>
+
+            </div>
+
+
+            <!-- INTRODUCCIÓN -->
+
+            <div class="casilla" onclick="mostrarIntroduccion()">
+
+                <div class="icono">
+                    📚
+                </div>
+
+                <h3>
+                    INTRODUCCIÓN
+                </h3>
+
+                <p>
+                    Conocé el tema
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         PORTADA
+    ========================= -->
+
+    <section id="portada" class="seccion">
+
+        <h2>
+            ¡Hola! Te damos la bienvenida
+        </h2>
+
+        <div class="destacado">
+
+            <p>
+                Hola, te damos la bienvenida a nuestra página.
+                Somos de la Escuela Media 9 y nos llamamos
+                <strong>Delfina Vidal, Ana Gutiérrez,
+                Fiorella Ferreyra y Bianca Coronel.</strong>
+            </p>
+
+        </div>
+
+        <p>
+            En este proyecto decidimos investigar y desarrollar
+            información relacionada con los años de la dictadura
+            militar en Argentina.
+        </p>
+
+        <p>
+            Nuestro objetivo es conocer mejor este período de
+            nuestra historia reciente, comprender lo que sucedió
+            y reflexionar sobre la importancia de la democracia,
+            la memoria y los derechos humanos.
+        </p>
+
+        <button class="boton-volver" onclick="mostrarInicio()">
+            ← Volver al inicio
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         INTRODUCCIÓN
+    ========================= -->
+
+    <section id="introduccion" class="seccion">
+
+        <h2>
+            Introducción: 50 años del golpe militar
+        </h2>
+
+        <p>
+            El 24 de marzo de 1976 se produjo en Argentina un golpe
+            de Estado que interrumpió el gobierno constitucional de
+            María Estela Martínez de Perón. A partir de ese momento
+            comenzó una dictadura militar que se extendió hasta
+            diciembre de 1983.
+        </p>
+
+        <p>
+            En 2026 se cumplen 50 años de aquel golpe de Estado.
+            Esta fecha representa una oportunidad para recordar,
+            estudiar y reflexionar sobre uno de los períodos más
+            dolorosos de la historia reciente de nuestro país.
+        </p>
+
+        <div class="destacado">
+
+            <p>
+                <strong>¿Por qué es importante recordar los 50 años?</strong>
+            </p>
+
+            <p>
+                Recordar no significa solamente conocer una fecha.
+                Significa comprender qué ocurrió, reconocer a las
+                víctimas y valorar la democracia y los derechos
+                humanos.
+            </p>
+
+        </div>
+
+        <p>
+            Durante la última dictadura militar se produjeron
+            importantes transformaciones políticas, económicas y
+            sociales. Las autoridades militares tomaron el control
+            del Estado, se suspendieron las instituciones
+            democráticas y se restringieron numerosas libertades.
+        </p>
+
+        <p>
+            También se produjo una fuerte persecución política y
+            social. Miles de personas fueron secuestradas y
+            detenidas ilegalmente, y muchas continúan desaparecidas.
+            La represión estatal dejó profundas consecuencias en
+            las familias y en toda la sociedad argentina.
+        </p>
+
+        <p>
+            A lo largo de estos 50 años, la memoria sobre este
+            período se convirtió en una parte importante de la
+            identidad democrática argentina. Las organizaciones de
+            derechos humanos tuvieron un papel fundamental en la
+            búsqueda de verdad, justicia e identidad.
+        </p>
+
+        <p>
+            Por eso consideramos importante estudiar este tema en
+            la escuela. Conocer nuestro pasado nos permite
+            reflexionar sobre el presente y construir una sociedad
+            que valore la democracia y respete los derechos de
+            todas las personas.
+        </p>
+
+        <button class="boton-volver" onclick="mostrarInicio()">
+            ← Volver al inicio
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         DESARROLLO
+    ========================= -->
+
+    <section id="desarrollo" class="seccion">
+
+        <h2>
+            Desarrollo: el golpe militar y sus consecuencias
+        </h2>
+
+
+        <!-- OBJETIVOS -->
+
+        <h3>
+            Objetivos generales
+        </h3>
+
+        <p>
+            Nuestro principal objetivo es conocer y comprender
+            los acontecimientos relacionados con el golpe de Estado
+            de 1976 y la última dictadura militar argentina.
+        </p>
+
+        <p>
+            También buscamos reconocer las consecuencias que este
+            período tuvo sobre la sociedad argentina y reflexionar
+            sobre la importancia de la democracia y los derechos
+            humanos.
+        </p>
+
+        <p>
+            Otro objetivo es valorar la memoria colectiva y
+            comprender por qué resulta necesario transmitir a las
+            nuevas generaciones el conocimiento de lo sucedido.
+        </p>
+
+
+        <!-- FUNDAMENTACIÓN -->
+
+        <h3>
+            Fundamentación
+        </h3>
+
+        <p>
+            Elegimos este tema porque forma parte de la historia
+            reciente de nuestro país y porque sus consecuencias
+            todavía pueden observarse en nuestra sociedad.
+            Consideramos que estudiar el pasado es fundamental
+            para comprender el presente.
+        </p>
+
+        <p>
+            Los 50 años del golpe militar constituyen además una
+            fecha significativa para recordar a las personas que
+            fueron víctimas de la represión y para reflexionar
+            acerca del valor de vivir en un sistema democrático.
+        </p>
+
+        <p>
+            Desde la escuela podemos contribuir a mantener viva
+            la memoria mediante el conocimiento, la investigación
+            y el diálogo. Recordar lo ocurrido permite fortalecer
+            el compromiso con los derechos humanos y con una
+            sociedad democrática.
+        </p>
+
+
+        <!-- GOLPE -->
+
+        <h3>
+            El golpe de Estado de 1976
+        </h3>
+
+        <p>
+            El 24 de marzo de 1976 las Fuerzas Armadas derrocaron
+            al gobierno constitucional. La presidencia fue asumida
+            por una junta militar integrada inicialmente por
+            representantes del Ejército, la Armada y la Fuerza
+            Aérea.
+        </p>
+
+        <p>
+            El nuevo gobierno se presentó como el "Proceso de
+            Reorganización Nacional". Sin embargo, durante este
+            período se produjo la interrupción de las instituciones
+            democráticas y se estableció un régimen autoritario.
+        </p>
+
+        <p>
+            El Congreso Nacional fue disuelto, se restringieron
+            libertades y se prohibieron o limitaron actividades
+            políticas y sindicales. El Estado ejerció un fuerte
+            control sobre diferentes ámbitos de la vida social.
+        </p>
+
+
+        <!-- REPRESIÓN -->
+
+        <h3>
+            La represión y el terrorismo de Estado
+        </h3>
+
+        <p>
+            Uno de los aspectos más graves de la dictadura fue la
+            utilización de la represión ilegal y clandestina.
+            Muchas personas fueron secuestradas y llevadas a
+            centros clandestinos de detención.
+        </p>
+
+        <p>
+            Las víctimas fueron sometidas a diferentes formas de
+            violencia y muchas personas fueron asesinadas o
+            permanecen desaparecidas.
+        </p>
+
+        <p>
+            La desaparición forzada provocó un enorme sufrimiento
+            en las familias, que durante años buscaron información
+            sobre sus seres queridos.
+        </p>
+
+
+        <!-- MADRES Y ABUELAS -->
+
+        <h3>
+            Madres y Abuelas de Plaza de Mayo
+        </h3>
+
+        <p>
+            Frente a esta situación surgieron distintas
+            organizaciones de familiares y organismos de derechos
+            humanos.
+        </p>
+
+        <p>
+            Las Madres de Plaza de Mayo comenzaron a reunirse
+            públicamente para reclamar por sus hijos desaparecidos.
+            Sus pañuelos blancos se transformaron en uno de los
+            símbolos más reconocidos de la lucha por los derechos
+            humanos en Argentina.
+        </p>
+
+        <p>
+            Las Abuelas de Plaza de Mayo, por su parte, iniciaron
+            una búsqueda para localizar a los niños y niñas que
+            habían sido separados de sus familias durante la
+            dictadura y recuperar sus identidades.
+        </p>
+
+
+        <!-- ECONOMÍA -->
+
+        <h3>
+            Consecuencias económicas y sociales
+        </h3>
+
+        <p>
+            La dictadura también produjo cambios importantes en
+            la economía argentina. Se aplicaron políticas que
+            modificaron la estructura productiva y financiera del
+            país.
+        </p>
+
+        <p>
+            Estas políticas tuvieron consecuencias sobre la
+            industria, el empleo, los salarios y la distribución
+            de la riqueza. La situación económica generó problemas
+            que continuarían afectando al país durante los años
+            posteriores.
+        </p>
+
+        <p>
+            En el ámbito social, el miedo y la censura afectaron
+            la vida cotidiana. Muchas personas evitaban expresar
+            públicamente sus opiniones políticas por temor a las
+            consecuencias.
+        </p>
+
+
+        <!-- CENSURA -->
+
+        <h3>
+            La censura
+        </h3>
+
+        <p>
+            Durante la dictadura también existió censura en los
+            medios de comunicación, la cultura y la educación.
+            Determinados libros, canciones, películas y expresiones
+            artísticas fueron prohibidos o controlados.
+        </p>
+
+        <p>
+            La censura buscaba limitar la circulación de ideas
+            consideradas contrarias al gobierno. Esto afectó a
+            escritores, periodistas, artistas, estudiantes,
+            docentes y otros sectores de la sociedad.
+        </p>
+
+
+        <!-- MALVINAS -->
+
+        <h3>
+            La Guerra de Malvinas
+        </h3>
+
+        <p>
+            En 1982 la dictadura tomó la decisión de ocupar las
+            Islas Malvinas, lo que provocó una guerra con el Reino
+            Unido.
+        </p>
+
+        <p>
+            El conflicto terminó con la derrota argentina y tuvo
+            un fuerte impacto sobre la sociedad. Muchos jóvenes
+            soldados argentinos participaron de la guerra y
+            numerosas familias sufrieron sus consecuencias.
+        </p>
+
+        <p>
+            La derrota debilitó aún más al gobierno militar y
+            aceleró el proceso de recuperación democrática.
+        </p>
+
+
+        <!-- RECUPERACIÓN DEMOCRÁTICA -->
+
+        <h3>
+            El regreso de la democracia
+        </h3>
+
+        <p>
+            Durante 1983 se realizaron elecciones democráticas.
+            Raúl Alfonsín fue elegido presidente y asumió el
+            10 de diciembre de ese año.
+        </p>
+
+        <p>
+            Con el regreso de la democracia comenzó una nueva etapa
+            en la historia argentina, marcada por la reconstrucción
+            de las instituciones y por la búsqueda de verdad y
+            justicia sobre los crímenes cometidos durante la
+            dictadura.
+        </p>
+
+
+        <!-- LÍNEA DEL TIEMPO -->
+
+        <h3>
+            Línea del tiempo
+        </h3>
+
+        <div class="timeline">
+
+            <div class="evento">
+
+                <h4>1976 - Golpe de Estado</h4>
+
+                <p>
+                    El 24 de marzo las Fuerzas Armadas toman el
+                    poder y comienza la última dictadura militar.
+                </p>
+
+            </div>
+
+
+            <div class="evento">
+
+                <h4>1977 - Madres de Plaza de Mayo</h4>
+
+                <p>
+                    Las madres de personas desaparecidas comienzan
+                    a reunirse en Plaza de Mayo para reclamar por
+                    sus familiares.
+                </p>
+
+            </div>
+
+
+            <div class="evento">
+
+                <h4>1982 - Guerra de Malvinas</h4>
+
+                <p>
+                    Argentina entra en guerra con el Reino Unido
+                    por las Islas Malvinas.
+                </p>
+
+            </div>
+
+
+            <div class="evento">
+
+                <h4>1983 - Regreso de la democracia</h4>
+
+                <p>
+                    Se realizan elecciones y Raúl Alfonsín asume
+                    la presidencia el 10 de diciembre.
+                </p>
+
+            </div>
+
+
+            <div class="evento">
+
+                <h4>2026 - 50 años</h4>
+
+                <p>
+                    Se cumplen 50 años del golpe de Estado de 1976,
+                    una fecha para recordar y reflexionar sobre
+                    nuestra historia.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONCLUSIÓN -->
+
+        <h3>
+            Reflexión final
+        </h3>
+
+        <p>
+            A 50 años del golpe militar, recordar lo sucedido
+            continúa siendo fundamental. La memoria permite
+            reconocer a las víctimas, comprender las consecuencias
+            de la dictadura y valorar los derechos que existen
+            dentro de una sociedad democrática.
+        </p>
+
+        <p>
+            Como estudiantes, consideramos que conocer la historia
+            nos ayuda a formar una mirada crítica sobre nuestro
+            presente. Mantener viva la memoria significa también
+            comprometernos con la democracia, la libertad y el
+            respeto por los derechos humanos.
+        </p>
+
+        <div class="destacado">
+
+            <p>
+                <strong>
+                    Memoria, verdad y justicia.
+                </strong>
+            </p>
+
+            <p>
+                Recordar nuestra historia es una forma de construir
+                un futuro en el que la democracia y los derechos
+                humanos sean siempre respetados.
+            </p>
+
+        </div>
+
+
+        <button class="boton-volver" onclick="mostrarInicio()">
+            ← Volver al inicio
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================= -->
+
+    <footer>
+
+        <p>
+            <strong>Proyecto escolar - Escuela Media 9</strong>
+        </p>
+
+        <p>
+            Delfina Vidal · Ana Gutiérrez · Fiorella Ferreyra · Bianca Coronel
+        </p>
+
+        <p>
+            50 años del Golpe Militar en Argentina
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        // Oculta todas las secciones
+
+        function ocultarTodo() {
+
+            document.getElementById("inicio").style.display = "none";
+
+            document.getElementById("portada").style.display = "none";
+
+            document.getElementById("introduccion").style.display = "none";
+
+            document.getElementById("desarrollo").style.display = "none";
+
+        }
+
+
+        // Mostrar inicio
+
+        function mostrarInicio() {
+
+            ocultarTodo();
+
+            document.getElementById("inicio").style.display = "flex";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        // Mostrar portada
+
+        function mostrarPortada() {
+
+            ocultarTodo();
+
+            document.getElementById("portada").style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        // Mostrar introducción
+
+        function mostrarIntroduccion() {
+
+            ocultarTodo();
+
+            document.getElementById("introduccion").style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        // Mostrar desarrollo
+
+        function mostrarDesarrollo() {
+
+            ocultarTodo();
+
+            document.getElementById("desarrollo").style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
+
+

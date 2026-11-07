@@ -1,0 +1,36 @@
+<DOCTYPE html></DOCTYPE>
+<html lang= "es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .texto-degradado {
+      background: linear-gradient(to right, #7f5AF0, #2CB67D);
+      background-clip: text; /*Estandar moderno */
+      -webkit-background-clip: text; /* Soporte para Chrome/Safari/Edge*/
+      color: transparent; /* Hace que el fondo se vea a traves */
+      display: inline-block; /* Ayuda a que el degradado se ajuste al texto */
+        }
+    .shadow-text{
+        color:#111;
+        /*Desplazamiento horizontal, vertical, 0 desenfoque, color*/
+        text-shadow: 4px 4px 0px rgba(0,0,0.2);
+
+    }
+    .glow-text{
+        color:#fff;
+        text-shadow:
+        0  0 7px #7F5AF0,
+        0  0 10PX  #7F5AF0,
+        0  0 21PX #7F5AF0;
+    }
+    </style>
+    </head>
+    <body>
+        <p class="texto-degradado">Texto con degradado </p>
+        <p class="shadow-text"> Texto con sombras </p>
+        <p class="glow-text">texto con efecto de neon </p>
+    </body>
+</head>
+</html>

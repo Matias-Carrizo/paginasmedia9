@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>50 años del Golpe de Estado</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f1ea;
+    color: #222;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif;
+}
+
+/* ================= NAVBAR ================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #171717;
+    color: white;
+    z-index: 1000;
+    padding: 14px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 22px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #c98282;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    height: 90vh;
+    min-height: 600px;
+    margin-top: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+
+    position: relative;
+
+    background-image:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.72)),
+        url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Retrato_Oficial_Jorge_Rafael_Videla_1976.jpg");
+
+    background-size: cover;
+    background-position: center 25%;
+}
+
+.hero-content {
+    max-width: 850px;
+    padding: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 12vw, 150px);
+    line-height: 0.9;
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    font-size: clamp(25px, 4vw, 45px);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 28px;
+    background: #8d2424;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #a93434;
+    transform: translateY(-2px);
+}
+
+/* ================= SECCIONES ================= */
+
+section {
+    padding: 90px 7%;
+    scroll-margin-top: 70px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.section-title {
+    color: #741d1d;
+    font-size: 42px;
+    margin-bottom: 25px;
+}
+
+.intro {
+    max-width: 850px;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+/* ================= CARDS ================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-left: 5px solid #8d2424;
+}
+
+.card h3 {
+    color: #741d1d;
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+/* ================= MARCOS HISTÓRICOS ================= */
+
+.image-card {
+    position: relative;
+
+    background: #e2d8c8;
+
+    border: 3px solid #6f6252;
+
+    border-radius: 4px;
+
+    padding: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.18),
+        inset 0 0 0 2px #c5b9a7;
+
+    margin-top: 35px;
+}
+
+/* Detalle rojo del marco */
+
+.image-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: #8d2424;
+
+    z-index: 2;
+}
+
+.image-card img {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 400px;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    background: transparent;
+
+    border: 1px solid #9c907e;
+}
+
+.image-caption {
+    margin-top: 10px;
+
+    background: #6f6252;
+
+    color: white;
+
+    padding: 9px 15px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    letter-spacing: 0.2px;
+}
+
+/* ================= FOTO DE VIDELA ================= */
+
+.videla-card {
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 45px auto 0;
+
+    background: #e2d8c8;
+
+    border: 3px solid #6f6252;
+
+    padding: 12px;
+}
+
+.videla-card img {
+    width: 100%;
+
+    height: 600px;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    background: transparent;
+}
+
+/* ================= DOS COLUMNAS ================= */
+
+.two-columns {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px;
+
+    align-items: center;
+}
+
+.two-columns .image-card {
+    width: 100%;
+
+    margin: 0;
+}
+
+.two-columns .image-card img {
+    width: 100%;
+
+    height: 430px;
+
+    object-fit: contain;
+
+    background: transparent;
+}
+
+/* ================= SECCIÓN OSCURA ================= */
+
+.dark-section {
+    background: #191919;
+    color: white;
+}
+
+.dark-section .section-title {
+    color: white;
+}
+
+.dark-section .card {
+    background: #262626;
+    color: #eeeeee;
+}
+
+.dark-section .card h3 {
+    color: #d48a8a;
+}
+
+/* ================= DESTACADO ================= */
+
+.highlight {
+    margin: 40px 0;
+
+    padding: 30px;
+
+    border-left: 6px solid #8d2424;
+
+    background: #e9e3d9;
+
+    border-radius: 5px;
+
+    color: #222;
+}
+
+.highlight h3 {
+    color: #741d1d;
+    margin-bottom: 10px;
+}
+
+/* IMPORTANTE:
+   Corrige el texto de "50 años después"
+   dentro de la sección oscura */
+
+.dark-section .highlight {
+    background: #e9e3d9;
+    color: #222;
+}
+
+.dark-section .highlight h3 {
+    color: #741d1d;
+}
+
+/* ================= RESISTENCIA ================= */
+
+#resistencia > .container > .image-card {
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 45px auto 0;
+}
+
+#resistencia > .container > .image-card img {
+    width: 100%;
+
+    height: 450px;
+
+    object-fit: contain;
+
+    background: transparent;
+}
+
+/* ================= LÍNEA DE TIEMPO ================= */
+
+.timeline {
+    margin-top: 50px;
+
+    border-left: 4px solid #8d2424;
+
+    padding-left: 30px;
+}
+
+.timeline-item {
+    margin-bottom: 35px;
+
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+
+    position: absolute;
+
+    width: 15px;
+    height: 15px;
+
+    background: #8d2424;
+
+    border-radius: 50%;
+
+    left: -40px;
+    top: 7px;
+}
+
+.timeline-year {
+    color: #8d2424;
+
+    font-weight: bold;
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+/* ================= ESTADÍSTICAS ================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-top: 40px;
+}
+
+.stat {
+    background: white;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.stat-number {
+    font-size: 40px;
+
+    font-weight: bold;
+
+    color: #8d2424;
+
+    font-family: Georgia, serif;
+}
+
+.stat p {
+    margin-top: 5px;
+
+    font-size: 14px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #171717;
+
+    color: #ccc;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+footer h3 {
+    color: white;
+
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #d48a8a;
+}
+
+/* ================= BOTÓN ARRIBA ================= */
+
+#topBtn {
+    position: fixed;
+
+    bottom: 25px;
+    right: 25px;
+
+    background: #8d2424;
+
+    color: white;
+
+    border: none;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    display: none;
+
+    z-index: 999;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    nav {
+        padding: 12px 20px;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .cards,
+    .two-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .videla-card img {
+        height: 500px;
+    }
+
+    .two-columns .image-card img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .logo {
+        font-size: 17px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .videla-card img {
+        height: 400px;
+    }
+
+    #resistencia > .container > .image-card img {
+        height: 320px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        1976 → 2026
+    </div>
+
+    <ul>
+        <li><a href="#contexto">Contexto</a></li>
+        <li><a href="#golpe">Golpe</a></li>
+        <li><a href="#dictadura">Dictadura</a></li>
+        <li><a href="#resistencia">Resistencia</a></li>
+        <li><a href="#democracia">Democracia</a></li>
+        <li><a href="#memoria">Memoria</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <h1>50 años</h1>
+
+        <h2>A 50 años del 24 de marzo de 1976</h2>
+
+        <p>
+            Un recorrido por el contexto histórico, el golpe de Estado,
+            la última dictadura militar argentina y el camino de regreso
+            a la democracia.
+        </p>
+
+        <a href="#contexto" class="btn">
+            Comenzar recorrido ↓
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ================= CONTEXTO ================= -->
+
+<section id="contexto">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            El contexto antes de 1976
+        </h2>
+
+        <p class="intro">
+            Para comprender el golpe de Estado de 1976 es necesario observar
+            la situación política, económica y social que atravesaba Argentina
+            durante los años anteriores.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Inestabilidad política</h3>
+
+                <p>
+                    Durante los años 60 y 70 Argentina atravesó distintos
+                    gobiernos civiles y militares, con períodos de fuerte
+                    conflictividad política y social.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>1973</h3>
+
+                <p>
+                    En 1973 volvió a establecerse un gobierno constitucional
+                    después de varios años de gobiernos militares. Sin embargo,
+                    los conflictos políticos y sociales continuaron.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Problemas económicos</h3>
+
+                <p>
+                    La inflación, los conflictos laborales y otras dificultades
+                    económicas contribuyeron al clima de inestabilidad de la época.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Violencia política</h3>
+
+                <p>
+                    Durante los años previos al golpe existieron enfrentamientos
+                    entre diferentes organizaciones políticas y grupos armados,
+                    además de acciones represivas estatales.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GOLPE ================= -->
+
+<section id="golpe">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            El golpe de Estado
+        </h2>
+
+        <div class="two-columns">
+
+            <div>
+
+                <p class="intro">
+                    El 24 de marzo de 1976 las Fuerzas Armadas derrocaron al
+                    gobierno constitucional de María Estela Martínez de Perón.
+                    Comenzó así una dictadura que se extendió hasta 1983.
+                </p>
+
+                <p>
+                    Las Fuerzas Armadas formaron una Junta Militar integrada
+                    por representantes del Ejército, la Armada y la Fuerza Aérea.
+                </p>
+
+                <br>
+
+                <p>
+                    El nuevo gobierno suspendió las instituciones democráticas,
+                    disolvió el Congreso e intervino diferentes organismos
+                    estatales, mientras establecía mecanismos de censura
+                    y control de la información.
+                </p>
+
+            </div>
+
+
+            <div class="image-card videla-card">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Retrato_Oficial_Jorge_Rafael_Videla_1976.jpg"
+                    alt="Jorge Rafael Videla"
+                >
+
+                <div class="image-caption">
+                    Jorge Rafael Videla, integrante de la primera Junta Militar.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DICTADURA ================= -->
+
+<section id="dictadura" class="dark-section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            La última dictadura militar
+        </h2>
+
+        <p class="intro">
+            Entre 1976 y 1983 se desarrolló un sistema represivo estatal
+            que afectó a miles de personas. La represión se realizó también
+            mediante estructuras clandestinas.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Desapariciones</h3>
+
+                <p>
+                    Muchas personas fueron secuestradas y permanecen hasta hoy
+                    como desaparecidas. La desaparición forzada fue una de las
+                    principales formas de represión utilizadas durante la dictadura.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Centros clandestinos</h3>
+
+                <p>
+                    Funcionaron numerosos centros clandestinos de detención
+                    donde fueron llevadas personas secuestradas por las fuerzas
+                    represivas.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Apropiación de niños</h3>
+
+                <p>
+                    Durante la dictadura también se produjeron casos de
+                    apropiación de niños y niñas, muchos de los cuales fueron
+                    separados de sus familias.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Censura</h3>
+
+                <p>
+                    Los medios de comunicación, los libros, las expresiones
+                    culturales y distintas formas de organización social
+                    estuvieron sometidos a censura y control.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RESISTENCIA ================= -->
+
+<section id="resistencia">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Resistencia y búsqueda de verdad
+        </h2>
+
+        <p class="intro">
+            Frente a la represión, familiares de personas desaparecidas
+            comenzaron a organizarse para reclamar información, encontrar
+            a sus familiares y exigir respuestas.
+        </p>
+
+
+        <div class="two-columns">
+
+            <div>
+
+                <h3>
+                    Madres y Abuelas de Plaza de Mayo
+                </h3>
+
+                <p>
+                    Las Madres de Plaza de Mayo comenzaron a reunirse en 1977
+                    para reclamar por sus hijos desaparecidos. Con el tiempo,
+                    su presencia pública se convirtió en uno de los símbolos
+                    de los reclamos por verdad y justicia.
+                </p>
+
+                <br>
+
+                <p>
+                    Las Abuelas de Plaza de Mayo se enfocaron especialmente
+                    en la búsqueda de niños y niñas que habían sido separados
+                    de sus familias durante la dictadura.
+                </p>
+
+            </div>
+
+
+            <div class="image-card">
+
+                <img
+                    src="https://www.unidiversidad.com.ar/cache/abuelas22_1000_1100.jpg"
+                    alt="Madres de Plaza de Mayo"
+                >
+
+                <div class="image-caption">
+                    Madres de Plaza de Mayo.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="highlight">
+
+            <h3>
+                El pañuelo blanco
+            </h3>
+
+            <p>
+                El pañuelo blanco se convirtió en uno de los principales
+                símbolos de las Madres y Abuelas de Plaza de Mayo y de la
+                búsqueda de familiares desaparecidos.
+            </p>
+
+        </div>
+
+
+        <div class="image-card">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Pañuelo_de_las_Madres_de_Plaza_de_Mayo.jpg"
+                alt="Pañuelo de las Madres de Plaza de Mayo"
+            >
+
+            <div class="image-caption">
+                El pañuelo blanco, símbolo de las Madres de Plaza de Mayo.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LÍNEA DE TIEMPO ================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Una historia en fechas
+        </h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    1976
+                </div>
+
+                <p>
+                    El 24 de marzo se produce el golpe de Estado y comienza
+                    la última dictadura militar.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    1977
+                </div>
+
+                <p>
+                    Las Madres de Plaza de Mayo comienzan a reunirse
+                    públicamente para reclamar por sus hijos desaparecidos.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    1982
+                </div>
+
+                <p>
+                    Argentina entra en guerra con el Reino Unido por las
+                    Islas Malvinas. El conflicto termina con la rendición
+                    argentina y profundiza la crisis de la dictadura.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    1983
+                </div>
+
+                <p>
+                    Se realizan elecciones democráticas. Raúl Alfonsín asume
+                    la presidencia el 10 de diciembre.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    1984
+                </div>
+
+                <p>
+                    Se crea la CONADEP para investigar las desapariciones
+                    y otras violaciones a los derechos humanos ocurridas
+                    durante la dictadura.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    1985
+                </div>
+
+                <p>
+                    Se realiza el Juicio a las Juntas, uno de los principales
+                    procesos judiciales relacionados con los crímenes cometidos
+                    durante la dictadura.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DEMOCRACIA ================= -->
+
+<section id="democracia">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            El regreso a la democracia
+        </h2>
+
+
+        <div class="two-columns">
+
+            <div>
+
+                <p class="intro">
+                    En 1983 Argentina recuperó un gobierno elegido mediante
+                    elecciones. Raúl Alfonsín asumió la presidencia el
+                    10 de diciembre de ese año.
+                </p>
+
+                <p>
+                    El regreso de las instituciones democráticas abrió una
+                    nueva etapa en la que comenzaron diferentes investigaciones
+                    y procesos judiciales relacionados con los crímenes
+                    cometidos durante la dictadura.
+                </p>
+
+            </div>
+
+
+            <div class="image-card">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ra%C3%BAl_Alfons%C3%ADn1983.jpg"
+                    alt="Raúl Alfonsín en 1983"
+                >
+
+                <div class="image-caption">
+                    Raúl Alfonsín durante el regreso de la democracia.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    1983
+                </div>
+
+                <p>
+                    Regreso de la democracia
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    1984
+                </div>
+
+                <p>
+                    Creación de la CONADEP
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    1985
+                </div>
+
+                <p>
+                    Juicio a las Juntas
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    2002
+                </div>
+
+                <p>
+                    24 de marzo como fecha nacional de memoria
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MEMORIA ================= -->
+
+<section id="memoria" class="dark-section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Memoria, verdad y justicia
+        </h2>
+
+        <p class="intro">
+            La memoria sobre este período forma parte de la historia argentina.
+            El 24 de marzo fue establecido como el Día Nacional de la Memoria
+            por la Verdad y la Justicia en 2002.
+        </p>
+
+
+        <div class="highlight">
+
+            <h3>
+                50 años después
+            </h3>
+
+            <p>
+                A medio siglo del golpe de Estado, recordar este período
+                permite conocer lo ocurrido, estudiar sus consecuencias y
+                comprender la importancia de las instituciones democráticas
+                y de los derechos humanos.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FUENTES ================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Fuentes y material consultado
+        </h2>
+
+        <p>
+            Para la elaboración de esta página se pueden consultar fuentes
+            institucionales y archivos históricos, entre ellos:
+        </p>
+
+        <br>
+
+        <p>
+            • Argentina.gob.ar — información histórica y oficial.
+        </p>
+
+        <p>
+            • Wikimedia Commons — fotografías y documentos históricos.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        50 años del 24 de marzo de 1976
+    </h3>
+
+    <p>
+        Página educativa sobre la historia argentina reciente.
+    </p>
+
+    <p>
+        1976 — 2026
+    </p>
+
+</footer>
+
+
+<!-- ================= BOTÓN ARRIBA ================= -->
+
+<button
+    id="topBtn"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+>
+    ↑
+</button>
+
+
+<script>
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function() {
+
+    if (window.scrollY > 500) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+
+});
+
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if (target) {
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

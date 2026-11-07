@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web con Tarjetas</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Menú de navegación */
+        header {
+            background-color: #0f63e0;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1abc9c;
+        }
+
+        /* Sección de Portada (Hero) */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeJHhO6N-4h319NbBnP80eMzktWCQjjZrLKN5c5kY8Jw&s=10");
+            height: 80vh;
+            display: flex;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top : 60px; /* Espacio por el menú fijo */
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color:white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 25px;
+            color:white;
+        }
+
+        .btn {
+            background-color: #1abc9c;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #16a085;
+        }
+
+        /* Sección de Tarjetas (Contenido) */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        .grid-tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 30px;
+        }
+
+        .tarjeta {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+        }
+
+        .tarjeta-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .tarjeta-contenido {
+            padding: 20px;
+        }
+
+        .tarjeta-contenido h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .tarjeta-contenido p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #0f63e0;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .tarjeta-texto{
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top:20px;
+        }
+        .tarjeta-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <header>
+        <nav>
+            <div class="logo">proyecto 50 años del golpe</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#informacion">Información</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Espacio para la Portada (Hero) -->
+    <section id="inicio" class="hero">
+        <h1>Golpe de Estado</h1>
+        <p> <s></s>ruptura del orden democratico.</p>
+        <p>.</p>
+        <a href="#informacion" class="btn">Explorar Tarjetas</a>
+    </section>
+
+    <!-- Espacio para el volcado de información en Tarjetas -->
+    <main id="informacion" class="container">
+        <h2 class="section-title">Sección de Información</h2>
+        
+        <div class="grid-tarjetas">
+            <!-- Tarjeta 1 -->
+            <div class="tarjeta">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHmk7KX76Omz7OotRIsv2shvi-yojEFmP3QgClOi1WoA&s=10" alt="Imagen descriptiva" class="tarjeta-img">
+                <div class="tarjeta-contenido">
+                    <h3>¿Que paso el 24 de marzo de 1976?</h3>
+                    <p>La última dictadura militar en Argentina, autodenominada «Proceso de Reorganización Nacional», constituyó el período más oscuro y violento de la historia moderna del país. Este régimen cívico-militar se instauró el 24 de marzo de 1976 tras un golpe de Estado que derrocó a la presidenta constitucional María Estela Martínez de Perón, y se extendió hasta el 10 de diciembre de 1983, dejando una profunda herida en el tejido político, social y económico de la nación.El quiebre institucional y las Juntas MilitaresEl poder absoluto quedó concentrado en una Junta Militar compuesta por los comandantes en jefe de las tres Fuerzas Armadas (Ejército, Armada y Fuerza Aérea). A lo largo de los siete años de dictadura, el cargo de presidente de facto fue ocupado sucesivamente por los generales Jorge Rafael Videla, Roberto Eduardo Viola, Leopoldo Fortunato Galtieri y Reynaldo Bignone.El régimen suspendió la Constitución Nacional, disolvió el Congreso de la Nación, intervino los sindicatos y prohibió la actividad política de todos los partidos, asumiendo facultades legislativas y judiciales extraordinarias.
+             .</p>
+                    <a href="https://www.suteba.org.ar/24-de-marzo-a-48-anos-memoria-verdad-y-justicia-nunca-mas-son-30-000-11818.html" target="_blank" class="btn">Leer más</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="tarjeta">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWvY98WVNCcRCsOTEZ_4ELEI-oWmKvqNtI8XkpG01GAWRi8vUNewJ1dCQ&s=10" alt="Imagen descriptiva" class="tarjeta-img">
+                <div class="tarjeta-contenido">
+                    <h3>La ultima dictadura militar</h3>
+                    <p>e denominó dictadura cívico-militar porque el golpe de Estado de 1976 y el posterior gobierno de facto no fueron ejecutados únicamente por las Fuerzas Armadas, sino que contaron con la colaboración, planificación y apoyo activo de importantes sectores civiles de la sociedad argentina.Durante muchos años se la llamó simplemente «dictadura militar», pero historiadores, sociólogos y la propia justicia penal adoptaron el término «cívico-militar» para reflejar que los militares fueron el brazo ejecutor de un plan en el que muchos civiles fueron cómplices y beneficiarios.
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="tarjeta">
+                <img src="https://www.feduba.org.ar/wp-content/uploads/2026/02/madre-e-hija.jpg" alt="Imagen descriptiva" class="tarjeta-img">
+                <div class="tarjeta-contenido">
+                    <h3>Concecuencias y regreso de la Democracia</h3>
+                    <p > Consecuelas de la DictaduraLas consecuencias combinaron la destrucción del tejido social con un quiebre económico estructural:Pérdidas humanas y trauma social: La desaparición forzada de 30.000 personas, el exilio de miles de intelectuales, científicos y ciudadanos, y la apropiación ilegal de alrededor de 500 bebés (identidades robadas) provocaron un daño psicológico y social que perdura hasta hoy.Destrucción económica y deuda: El plan económico dejó al país con una inflación galopante, una industria nacional desmantelada y una deuda externa que se multiplicó casi por seis (pasando de 8.000 millones a cerca de 45.000 millones de dólares), agravada por la estatización de las deudas de grandes empresas privadas.El impacto de Malvinas: La guerra de 1982 dejó un saldo de 649 soldados argentinos muertos y miles de veteranos con graves secuelas físicas y psicológicas, profundizando el dolor colectivo.Desprestigio institucional: Las Fuerzas Armadas perdieron totalmente su legitimidad ante la sociedad, tanto por las violaciones a los derechos humanos como por la corrupción y la impericia profesional demostrada en Malvinas.El Regreso de la DemocraciaLa transición democrática se aceleró de manera irreversible tras la derrota en la Guerra de Malvinas en junio de 1982. El dictador Leopoldo Galtieri renunció y asumió el general Reynaldo Bignone con la única tarea de pactar una salida institucional.La presión popular: Los sindicatos (que organizaron huelgas masivas), los partidos políticos nucleados en la Multipartidaria y los organismos de derechos humanos multiplicaron las marchas en las calles exigiendo elecciones inmediatas y la aparición con vida de los detenidos.Las elecciones de 1983: El régimen se vio obligado a convocar a elecciones generales para el 30 de octubre de 1983. En una campaña histórica que movilizó a millones de personas, el candidato de la Unión Cívica Radical, Raúl Alfonsín, ganó con el 51,7% de los votos, venciendo al peronismo (Ítalo Lúder) bajo la promesa de juzgar los crímenes y garantizar la vigencia de la Constitución.La asunción histórica: El 10 de diciembre de 1983, Alfonsín asumió la presidencia de la Nación. Esta fecha quedó establecida como el Día de la Restauración de la Democracia en Argentina.Los Primeros Pasos Democráticos (1983-1985)Para consolidar el regreso democrático y marcar un quiebre definitivo con la impunidad, el nuevo gobierno civil tomó medidas inmediatas:Creación de la CONADEP: A los pocos días de asumir, Alfonsín creó la Comisión Nacional sobre la Desaparición de Personas, liderada por el escritor Ernesto Sabato. Su investigación civil recopiló miles de testimonios que probaron el plan sistemático de desaparición, plasmados en el histórico informe «Nunca Más» (1984).El Juicio a las Juntas (1985): En un hecho inédito a nivel mundial, la justicia civil juzgó y condenó a los comandantes de las Juntas Militares (incluidos Videla y Massera) por delitos de lesa humanidad. El alegato final del fiscal Julio César Strassera cerró con la frase que se convirtió en el emblema de la democracia argentina: «Nunca más».Si estás armando un trabajo, decime si necesitás profundizar en:Los detalles del informe Nunca Más y el trabajo de la CONADEP.Las presiones militares posteriores que sufrió Alfonsín (como los levantamientos Carapintadas).El rol de la juventud en la campaña electoral de 1983.</p>
+                    
+    . </p>
+                    <a href="https://www.cultura.gob.ar/30-de-octubre-de-1983-recuperacion-de-la-democracia-argentina-9684/"  target="_blank" class="btn">Leer más</a>
+                </div>
+            </div>
+        </div>
+        <div class="tarjeta-texto">
+            <img src="https://i0.wp.com/carasycaretas.org.ar/wp-content/uploads/2019/04/Juicio-a-las-Juntas4-432x288.png?fit=432%2C288&ssl=1" alt="imagen descriptiva" class="tarjeta-img">
+            <div class="tarjeta-contenido">
+<h1>introduccion</h1>
+Introducción
+
+<p>El Juicio a las Juntas fue el proceso judicial llevado a cabo en Argentina en 1985 para juzgar a los máximos comandantes de las fuerzas armadas que gobernaron el país durante la última dictadura militar (1976-1983). Este proceso constituyó un acontecimiento histórico sin precedentes a nivel global, ya que fue la primera vez que un tribunal civil de la propia nación juzgó y condenó los crímenes de Estado de un régimen de facto de forma masiva, en lugar de recurrir a tribunales internacionales o militares.</p>
+
+<h2>El Contexto y el Informe Nunca Más</h2>
+
+<p>Tras asumir la presidencia en diciembre de 1983, Raúl Alfonsín firmó el decreto 158/83 que ordenaba someter a juicio a los integrantes de las tres primeras juntas militares. Para recabar las pruebas, el gobierno civil creó la Comisión Nacional sobre la Desaparición de Personas (CONADEP), presidida por el escritor Ernesto Sabato.
+La CONADEP recopiló miles de testimonios que demostraron la existencia de un plan sistemático de secuestro, tortura y desaparición forzada. Este trabajo se plasmó en el informe "Nunca Más", que se convirtió en la base probatoria fundamental sobre la cual la fiscalía construyó el caso penal.
+</p>
+El Desarrollo del Juicio
+
+Las audiencias orales y públicas comenzaron el 22 de abril de 1985 ante la Cámara Nacional de Apelaciones en lo Criminal y Correccional Federal. Nueve excomandantes se sentaron en el banquillo de los acusados.
+El equipo de la fiscalía estuvo liderado por el fiscal Julio César Strassera y su adjunto, Luis Moreno Ocampo. A lo largo de varios meses, el tribunal escuchó el impactante relato de 833 testigos (sobrevivientes, familiares de las víctimas y peritos). Estos testimonios expusieron con crudeza el funcionamiento de los centros clandestinos de detición y desarmaron el argumento defensivo de las juntas, que alegaban haber librado una "guerra legítima" contra la subversión.
+El juicio culminó con el célebre alegato final del fiscal Strassera, quien cerró su discurso con una frase que quedó grabada en la memoria colectiva del país y del mundo:
+"Señores jueces: quiero renunciar expresamente a toda pretensión de originalidad para cerrar esta acusación. Quiero utilizar una frase que no me pertenece, porque pertenece ya a todo el pueblo argentino. Señores jueces: ¡Nunca más!"
+
+Las Sentencias
+
+El 9 de diciembre de 1985, el tribunal dictó una sentencia histórica. La justicia civil determinó que los crímenes cometidos no correspondieron a excesos aislados, sino a una política de terrorismo de Estado perfectamente planificada:
+• Jorge Rafael Videla y Emilio Eduardo Massera: Condenados a reclusión perpetua y destitución militar.
+• Roberto Eduardo Viola: Condenado a 17 años de prisión.
+• Armando Lambruschini: Condenado a 8 años de prisión.
+• Orlando Ramón Agosti: Condenado a 4 años y 6 meses de prisión.
+• Absoluciones: Omar Grafigna, Leopoldo Galtieri, Jorge Anaya y Basilio Lami Dozo fueron absueltos de los cargos específicos presentados en esta causa (aunque algunos de ellos enfrentaron otros juicios penales o militares posteriormente).
+
+Legado Histórico
+
+El Juicio a las Juntas consolidó la naciente democracia argentina y marcó la subordinación definitiva del poder militar al poder civil. A pesar de los retrocesos políticos posteriores —como las leyes de Punto Final y Obediencia Debida de fines de los 80, y los indultos presidenciales de los 90—, el juicio de 1985 sentó las bases jurídicas y morales que permitieron, décadas más tarde, la reapertura de las causas y la condena de cientos de represores. Hoy en día, es considerado un hito fundacional en la defensa mundial de los derechos humanos.
+</div>    
+</div>
+</main>
+
+    <!-- Pie de página -->
+    <footer id="contacto">
+        <p>&copy; 2026 MiWeb. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
