@@ -1,6 +1,7 @@
-grupo1:carabajal,lopez,scianca,santellan
-grupo2:caro, dos santos,blanco
-grupo3:DUARTE, SPINELLI, PERFUMO, BENITEZ
-grupo4:rothar,behr,sanchez,vega
-grupo5:ferreyra,vidal,coronel,gutierrez
-grupo6:bataras,troiloscalia,gomez lautaro
+grupo1:Carabajal Lourdes,Lopez Alma,scianca,santellan (link: https://matias-carrizo.github.io/paginasmedia9/grupo1.html)
+grupo2:Caro, dos santos,blanco (link https://matias-carrizo.github.io/paginasmedia9/grupo2.html)
+grupo3:DUARTE, SPINELLI, PERFUMO, BENITEZ (link: https://matias-carrizo.github.io/paginasmedia9/grupo3.html)
+grupo4:rothar,behr,sanchez,vega (link: https://matias-carrizo.github.io/paginasmedia9/grupo4.html)
+grupo5:ferreyra,vidal,coronel,gutierrez (link: https://matias-carrizo.github.io/paginasmedia9/grupo5/proyecto50a%C3%B1ogolpeoficial.html)
+grupo6:bataras,troiloscalia,gomez Lautaro(link: https://matias-carrizo.github.io/paginasmedia9/grupo6)
+grupo7:Gutierrez Monica, Santos Zoe (link: https://matias-carrizo.github.io/paginasmedia9/grupo7/pagina6.html)
